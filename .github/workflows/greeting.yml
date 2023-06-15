@@ -1,0 +1,17 @@
+name: Greeting
+
+on:
+  workflow_dispatch
+
+jobs:
+  greet:
+    name: Greet and log time
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greeting
+        id: greeting
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: 'Eli Skymystic'
+      - name: Log greeting time
+        run: echo "The time was ${{ steps.greeting.outputs.time }}"
